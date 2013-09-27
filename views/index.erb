@@ -1,0 +1,53 @@
+
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!--                        BANNER	                              -->
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>Chitter.io</h1>
+    <p><small>Share your thoughts, ideas, and whatever else you might think of. Please register if you an employee, add your profile details, and start posting. Chitter is a closed app to be used exclusively by Funnyhow staff. If your not part of Funnyhow, fuck off.</small></p>
+    
+  </div>
+</div>
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!--                         PUT POSTS                            -->
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+
+<%= partial :posting %>
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!--                            POSTS  	                         -->
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+
+<% if !current_user %>
+	<div class="container">
+	<div class="row">
+        <div class="col-lg-4">
+          <h2>Features</h2>
+          <p>Linkily allows you to add your work posts with respective tags and categories so that you and your team can know what's relevant for the company's day-to-day tasks. </p>
+          <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
+        </div>
+        <div class="col-lg-4">
+          <h2>Funnyhow</h2>
+          <p>Specialised in organised creativity and supported by the ancient values della Cosa Nostra, this famiglia - that treats it's clients as such - doesn't leave problems unsolved or creativity to be desired regarding it's executions. </p>
+          <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
+       </div>
+        <div class="col-lg-4">
+          <h2>About</h2>
+          <p>This whole app was built by one individual in a matter of a week, while studying how to become a programmer. All of the features and implementations were built from scratch, and the source code can be viewed in...</p>
+          <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
+        </div>
+	</div>
+
+	<% else %>
+		<%= partial :posts %>
+	<% end %>
+
+
+
+	
+
+

@@ -1,0 +1,17 @@
+<div class="container">
+	<h4>Collection of Posts:</h4>
+	<div>
+		<ul>
+			<% @posts.each do |post| %>
+			<div class="list-group">
+				  <h4 class="list-group-item-heading"><%= post.title %></h4>
+				  <p class="list-group-item-text"><%= post.body %></p>
+				  <p>Tags: <%= post.tag %></P>
+				  <p class='source'>
+				  	added <%= post.created_at %> by <a href="#"><%= post.user %></a>
+				  </p>
+			</div>
+			<% end %>
+		</ul>
+	</div>
+</div>
