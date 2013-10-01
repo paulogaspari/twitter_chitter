@@ -61,38 +61,8 @@
           <%= partial :login_form %>
         </div>
       </div>
-    </div>
+    </div>	
 
-
-
-<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
-<!--                         NOTICES                              -->
-<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
-	<!-- PUTTING NOTICE  OF SIGN OUT -->	
-		<% if flash[:notice] %>
-	      <div class="container">
-			<div class="alert alert-info">
-		    	<div id="notice">
-		      		<%= flash[:notice] %>
-		    	</div>
-		    </div>
-		  </div>
-		<% end %>
-		
-
-	<!-- PUTTING ERRORS -->
-	    <% if flash[:errors] && !flash[:errors].empty? %>
-	    	<div class="container">
-		   		<div class="alert alert-danger">
-			   		Sorry, there were the following problems with the form. 
-			   		<ul id='errors'>
-			 	 		<% flash[:errors].each do |error| %>
-			 	 		<li><%= error %></li>
-			 	 		<% end %>
-			 	 	</ul>
-		 	 	</div>
-	 		</div>
-	 	 <% end %>
 		
 
 <!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->

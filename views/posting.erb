@@ -1,6 +1,15 @@
-	<div class="container">
+<div class="container">
+	<% if current_user %>
+		
+<!-- TESTE PARA VER SE ESTA TUDO OK COM USERNAME -->
+<!-- TESTE PARA VER SE ESTA TUDO OK COM USERNAME -->
+		<div class="container">
+		<%= current_user.username %><%= current_user.username %>
+		<%= current_user.email %>
+		</div>
 
-<% if current_user %>
+
+
 	    <hr>
 		<h5>Add a new Post:</h5>
 		<small>
@@ -14,16 +23,14 @@
 						<input type='text' name='body'>
 						
 						<span class="input-group-addon">Hashtags:</span>
-						<input type='text' name='tag'>
+						<input type='text' name='tags'>
 
-						<input type='hidden' name='username' value='<%= current_user.username %>username'>
+						<input type='hidden' name='username' value='<%= current_user.username %>'>
 						
 						<input type='submit' value='Add post' class="btn btn-default btn-xs">
 					</div>
 			</form>
 		</small>
 	    <hr>
-
 	<% end %>
-
-	</div>
+</div>

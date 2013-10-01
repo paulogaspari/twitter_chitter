@@ -46,19 +46,19 @@ class TwitterChitter < Sinatra::Base
 ###################################################################
 
   post '/posts' do
-  	body = params['body']
+  	content = params['body']
   	title = params['title']
-  	tags = params['tag'].split(' ').map {|tag| Tag.first_or_create(:text => tag) }
-    user = params['username']
-    created_at = params[Time.now]
-  	Post.create(:body => body, :title => title, :tag => tag, :user =>user, :created_at => created_at)
+  	tags = params["tags"].split(" ").map{|tag| Tag.first_or_create(:text => tag)}
+    user = User.first_or_create(:username => params['username'])
+    time = Time.now
+  	Post.create(:body => content, :title => title, :tags => tags, :user => user, :created_at => time)
   	redirect to('/')
   end
 
 
 
 #   SORTING BY TAGS
-###################################################################
+###################################################### => #############
  
   get '/tags/:text' do
   	tag = Tag.first(:text => params[:text])
@@ -80,7 +80,10 @@ class TwitterChitter < Sinatra::Base
   post '/users' do
     @user = User.create(:email => params[:email],
                 :password => params[:password],
-                :password_confirmation => params[:password_confirmation])
+                :password_confirmation => params[:password_confirmation],
+                :firstname => params[:firstname],
+                :lastname => params[:lastname],
+                :username => params[:username])
     if @user.save
       session[:user_id] = @user.id
       redirect to('/')
@@ -105,7 +108,7 @@ class TwitterChitter < Sinatra::Base
       redirect to('/')
     else
       flash[:errors] = ["The email or password are incorrect"]
-      erb :new_session
+      redirect to('/')
     end
   end
 

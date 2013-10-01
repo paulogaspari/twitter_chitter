@@ -2,11 +2,11 @@ class Post
 
 	include DataMapper::Resource
 
-	has n, :tag, :through => Resource
-	has 1, :user, :through => Resource
+	has n, :tags, :through => Resource
+	belongs_to :user
 
 	property :id, 			Serial
-	property :title, 		String
+	property :title, 		String, length: 1..60, :message=> "Keep your title short. Max 60 chars."
 	property :body, 		Text
 	property :created_at, 	DateTime
 

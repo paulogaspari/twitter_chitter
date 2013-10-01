@@ -6,9 +6,9 @@
 			<div class="list-group">
 				  <h4 class="list-group-item-heading"><%= post.title %></h4>
 				  <p class="list-group-item-text"><%= post.body %></p>
-				  <p>Tags: <%= post.tag %></P>
+				  <p>Tags: <%= post.tags.map(&:text).join(', ') %></P>
 				  <p class='source'>
-				  	added <%= post.created_at %> by <a href="#"><%= post.user %></a>
+				  	added <%= post.created_at %> by <a href="#"><%= post.user.username %></a>
 				  </p>
 			</div>
 			<% end %>
